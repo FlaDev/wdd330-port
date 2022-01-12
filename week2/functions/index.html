@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object example</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <h1>Functions</h1>
+    <h2>Defining Functions</h2>
+    <h3>Function declaration</h3>
+    <pre>
+      <code>
+      function hello(){
+        console.log('Hello World!');
+    }
+  </code>
+    </pre>
+    
+    <h3>Function constructors</h3>
+    <pre>
+      <code>
+        const hi = new Function('console.log("Hi World!");');
+      </code>
+    </pre>
+
+
+    <h3>Function callbacks</h3>
+    <pre>
+      <code>
+        --------------
+        function dance() {
+          console.log("I'm moving my body to the groove."); ( We’re just logging a simple message to the console in these examples, but these functions could be used to do anything in a practical sense.)
+        }
+        sing('Let It Go',dance);
+        << 'I'm singing along to Let It Go.'
+        'I'm moving my body to the groove.'
+        --------------
+
+        sing('Let It Go',()=>{ console.log("I'm standing on my head.");});
+        << 'I'm singing along to Let It Go.'
+        'I'm standing on my head.'
+      </code>
+
+    </pre>
+        
+  </body>
+</html>
