@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD 330 portfolio</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>WDD 330 portfolio</h1>
+    <h2>Week05</h2>
+    <ul>
+      <li>
+        <a href="quiz/index.html">quiz using test and debug</a> - Push F12 for consosole messages.
+      </li>
+      <li>
+        Strict Mode
+ECMAScript 5 introduced a strict mode that produces more exceptions and warnings and prohibits the use of some deprecated features. This is due to the fact that strict mode considers coding practices that were previously accepted as just being 'poor style' as actual errors.
+
+Increasing the chance of errors might seem like a bad idea at first, but it’s much better to spot errors early on, rather than have them cause problems later. Writing code in strict mode can also help improve its clarity and speed, since it follows conventions and will throw exceptions if any sloppy code practices are used.
+
+Not using strict mode is often referred to as 'sloppy mode' as it’s forgiving of sloppy programming practices. Strict mode encourages a better quality of JavaScript to be written that befits a ninja programmer, so its use is recommended.
+
+Strict mode simply requires the following string to be added to the first line of a JavaScript file:
+
+'use strict';
+      </li>
+      <li>
+        <code>
+          <pre>
+          'use strict';
+          e = 2.718;
+          << ReferenceError: e is not defined
+</pre>
+        </code>
+       
+      </li>
+
+      <li>
+        Writing messages for debug using the console:
+
+        <pre>
+          function amIOldEnough(age){
+            console.log(age);
+                if (age < 12) {
+                console.log(`In the if with ${age}`);
+                return 'No, sorry.';
+                } else if (age < 18) {
+                console.log(`In the else-if with ${age}`);
+                return 'Only if you are accompanied by an adult.';
+                } else {
+                console.log(`In the else with ${age}`);
+                return 'Yep, come on in!';
+            }
+        }
+        </pre>
+      </li>
+
+
+      <li>
+        Using debugger command:
+        <pre>
+          function amIOldEnough(age){
+            debugger;
+                if (age < 12) {
+                debugger;
+                return 'No, sorry.';
+                } else if (age < 18) {
+                debugger;
+                return 'Only if you are accompanied by an adult.';
+                } else {
+                debugger;
+                return 'Yep, come on in!';
+            }
+        }
+        </pre>
+      </li>
+    </ul>
+  </body>
+</html>

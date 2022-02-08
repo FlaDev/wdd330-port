@@ -14,6 +14,10 @@ const links = [
     {
         label: "Week4 notes",
         url: "week4/index.html"
+    },
+    {
+        label: "Week5 notes",
+        url: "week5/index.html"
     }
 ]
 
@@ -36,12 +40,7 @@ const week3 = [
     {text: "Mobile users are the majority with difference sizes and resolutions"},
 ]
 
-const week4 = [
-    {text: ""},
-    {text: ""},
-]
-
-const weeks = [week1, week2, week3, week4]
+const weeks = [week1, week2, week3]
 
 function getMenu() {
     let list = document.getElementById("menu-list");    
