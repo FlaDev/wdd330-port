@@ -1,78 +1,46 @@
-class Storage {
 
-    constructor() {
-        this.storage = window.localStorage;
-    }
+class Utilities {
 
-    loadStorageContent() {
-        let contentObjs = [];
-        let keys = Object.keys(this.storage);
-        keys.forEach(key => {
-            contentObjs.push(this.storage.getItem(key));
-        });
-        return contentObjs;
-    }
-
-    addIntoStorage(task, isCompleted) {
-        let contentID = new Date().getTime();
-        let contentObj = {
-            id: contentID,
-            content: task,
-            completed: isCompleted
-        };
-        // console.log('Adding item to storage --> ' + contentObj.id);
-        this.storage.setItem(contentID, JSON.stringify(contentObj));
-        return contentID;
-    }
-
-    updateItem(contentID, content) {
-        let contentObj = {
-            id: contentID,
-            content: content,
-            completed: false
-        };
-        this.storage.removeItem(contentID);
-        this.storage.setItem(contentID, JSON.stringify(contentObj));
-        // console.log("Item [" + contentID + "] " + "Updated");
-    }
-
-
-    removeFromStorage(id) {
-        this.storage.removeItem(id);
-        console.log("Removed object id: " + id);
-
-    }
-
-
-
-    // #################
     /**
-        * Receives all tasks that are in the local storage and load them to the screen
-        * @param {*} storedTasks 
-        */
-    loadAllTasksFromStorageToPage() {
-        let storedTasks = this.loadStorageContent();
-        console.log('local storage tasks size: ' + storedTasks.length);
-        let tasksDiv = document.querySelector("#tasks");
+     * remove all child nodes from the Main div which holds all tasks
+     * @param {*} parent 
+     * @returns 
+     */
+    removeAllChildNodes(parent) {
+        if (parent == null) {
+            return;
+        }
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
 
+    /**
+     * Receives all tasks that are in the local storage and load them to the screen
+     * @param {*} storedTasks 
+     */
+    loadAllTasksFromStorageToPage(storedTasks) {
+        
+        let tasksDiv = document.querySelector("#tasks");
         storedTasks.forEach(element => {
             let content = JSON.parse(element);
             let taskDiv = this.#createHtmlElementTask(content);
             let checkbox = this.#createHtmlElementCheckBox();
-            taskDiv.appendChild(checkbox);
-            let contentDiv = this.#createHtmlElementContent();
-            taskDiv.appendChild(contentDiv);
             let contentInput = this.#createHtmlElementContentInput(content);
+            let contentDiv = this.#createHtmlElementContent();
+            let buttonsDiv = this.#createHtmlElmentButtons(contentInput);
+            taskDiv.appendChild(checkbox);
+             // add input with task value into content div
             contentDiv.appendChild(contentInput);
-            let buttonsDiv = this.#createHtmlElmentButtons(contentInput, taskDiv, tasksDiv);
-            // add input with task value into content div
+            taskDiv.appendChild(contentDiv);
             taskDiv.appendChild(buttonsDiv);
             tasksDiv.appendChild(taskDiv);
+
+
         });
     }
 
     #createHtmlElementTask(jsonContent) {
-
         const divTask = document.createElement('div');
         divTask.id = jsonContent.id;
         divTask.classList.add('task');
@@ -103,10 +71,12 @@ class Storage {
         // create div for content
         const task_content_el = document.createElement('div');
         task_content_el.classList.add('content');
+
+        
         return task_content_el;
     }
 
-    #createHtmlElmentButtons(task_input_el, divTask, divTasks) {
+    #createHtmlElmentButtons(task_input_el) {
         // create actions (buttons div)
         const task_actions_el = document.createElement('div');
         task_actions_el.classList.add('actions');
@@ -122,9 +92,6 @@ class Storage {
         task_actions_el.appendChild(task_edit_el);
         task_actions_el.appendChild(task_delete_el);
 
-        divTask.appendChild(task_actions_el);
-		divTasks.appendChild(divTask);
-
         // Create event listener
         task_edit_el.addEventListener('click', (e) => {
             if (task_edit_el.innerText.toLowerCase() == "edit") {
@@ -134,23 +101,20 @@ class Storage {
             } else {
                 task_edit_el.innerText = "Edit";
                 task_input_el.setAttribute("readonly", "readonly");
-                this.updateItem(divTask.id, task_input_el.value);
+                storage.updateItem(divTask.id, task_input_el.value);
             }
         });
         task_delete_el.addEventListener('click', (e) => {
-            this.removeFromStorage(divTask.id);
+            storage.removeFromStorage(divTask.id);
             divTasks.removeChild(divTask);
         });
 
         return task_actions_el;
     }
 
-    // #################
-
-
-
 
 
 }
 
-export const ls = new Storage();
+export const util = new Utilities();
+

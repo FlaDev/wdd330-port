@@ -8,6 +8,7 @@
 	<title>Task List 2021</title>
 
 	<link rel="stylesheet" href="main.css" />
+	<script type="module" src="todos.js"></script>
 </head>
 
 <body>
@@ -35,24 +36,26 @@
 					</div>
 				</div>
 			</div> -->
-			<div id="tasks">
-				<div class="task">
+			
+			<div id="controller-list">
+				<div class="controller">
 					<div class="actions ">
 						<p class="edit" id="task_counter">0 task left</p>
 						<div class="buttons-box">
-							<button class="sort">All</button>
+							<button class="sort" id="btn_all">All</button>
 							<button class="sort">Active</button>
 							<button class="sort">Completed</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div id="tasks"></div>
 
 		</section>
 
 	</main>
 
-	<script type="module" src="todos.js"></script>
+	
 </body>
 
 </html>
