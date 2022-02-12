@@ -1,9 +1,18 @@
+/**
+ * Storage Class
+ * Storage Operations
+ * author: Flavio Prumucena
+ */
 class Storage {
 
     constructor() {
         this.storage = window.localStorage;
     }
 
+    /**
+     * Load all stored items
+     * @returns Stored objects
+     */
     loadStorageContent() {
         let contentObjs = [];
         let keys = Object.keys(this.storage);
@@ -13,6 +22,12 @@ class Storage {
         return contentObjs;
     }
 
+    /**
+     * Add items to local storage
+     * @param {string} task 
+     * @param {boolean} isCompleted 
+     * @returns object
+     */
     addIntoStorage(task, isCompleted) {
         let contentID = new Date().getTime();
         let contentObj = {
@@ -25,6 +40,12 @@ class Storage {
         return contentObj;
     }
 
+    /**
+     * Update items in the storage
+     * @param {*} contentID 
+     * @param {*} content 
+     * @param {*} completed 
+     */
     updateItem(contentID, content, completed) {
         let contentObj = {
             id: contentID,
@@ -37,6 +58,10 @@ class Storage {
     }
 
 
+    /**
+     * Deletes items from storage
+     * @param {*} id 
+     */
     removeFromStorage(id) {
         this.storage.removeItem(id);
         console.log("Removed object id: " + id);

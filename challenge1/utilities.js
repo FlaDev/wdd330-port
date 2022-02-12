@@ -1,4 +1,7 @@
 
+/**
+ * Created to store utilies functions
+ */
 class Utilities {
 
     /**

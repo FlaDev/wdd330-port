@@ -275,6 +275,9 @@ input[type="checkbox"] {
 .controller .actions button:active {
 	opacity: 0.6;
 }
+.controller .actions button:active, .active {
+	outline: crimson auto 1px;
+}
 
 .task .actions .edit {
 	background-image: linear-gradient(to right, var(--pink), var(--purple));
@@ -313,9 +316,3 @@ input[type="checkbox"] {
 	border: 1px solid var(--light);
 }
 
-.controller .actions .buttons-box {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	border: 1px solid var(--light);
-}
