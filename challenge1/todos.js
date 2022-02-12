@@ -126,7 +126,7 @@ function displayAllTasksFromStorage(divTasks) {
 		taskDiv.appendChild(contentDiv);
 		let contentInput = createHtmlElementContentInput(content);
 		contentDiv.appendChild(contentInput);
-		let buttonsDiv = createHtmlElmentButtons(contentInput, taskDiv, divTasks);
+		let buttonsDiv = createHtmlElmentButtons(contentInput, taskDiv, divTasks, checkbox);
 		// add input with task value into content div
 		taskDiv.appendChild(buttonsDiv);
 		divTasks.appendChild(taskDiv);
@@ -212,7 +212,7 @@ function createHtmlElementContent() {
  * @param {*} divTasks 
  * @returns 
  */
-function createHtmlElmentButtons(task_input_el, divTask, divTasks) {
+function createHtmlElmentButtons(task_input_el, divTask, divTasks, checkbox) {
 	// create actions (buttons div)
 	const task_actions_el = document.createElement('div');
 	task_actions_el.classList.add('actions');
@@ -240,7 +240,7 @@ function createHtmlElmentButtons(task_input_el, divTask, divTasks) {
 		} else {
 			task_edit_el.innerText = "Edit";
 			task_input_el.setAttribute("readonly", "readonly");
-			ls.updateItem(divTask.id, task_input_el.value);
+			ls.updateItem(divTask.id, task_input_el.value, checkbox.checked);
 		}
 	});
 	task_delete_el.addEventListener('click', (e) => {
@@ -268,8 +268,6 @@ function updateTaskCounter() {
 
 	//Update html element
 	const task_counter_el = document.querySelector("#task_counter");
-	console.log(task_counter_el);
-	console.log(counter);
 	if (counter > 1) {
 		task_counter_el.innerHTML = counter + ' TASKS LEFT';
 	} else {
