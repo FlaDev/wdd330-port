@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WDD 330 portfolio</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <h1>WDD 330 portfolio</h1>
+  <h2>Week7</h2>
+  <ul>
+    <li>
+      <a href="quiz/index.html">Functions Quiz</a>
+    </li>
+    <li>
+      <a href="quiz _ajax/index.html">Ajax Quiz</a>
+    </li>
+    <h3>Functions Notes</h3>
+    <li>
+      Cache a value:
+      <code>
+          <pre>
+            function square(x){
+              square.cache = square.cache || {};
+              if (!square.cache[x]) {
+                  square.cache[x] = x*x;
+              }
+              return square.cache[x]
+          }
+          Execution:
+
+          square(3);
+          << 9
+
+          square(-11);
+          << 121
+
+          square.cache;
+          << {"3": 9, "-11": 121}
+          </pre>
+        </code>
+    </li>
+
+    <li>
+      anonymous function:
+
+      <pre>
+          (function(){
+            const temp = 'World';
+            console.log(`Hello ${temp}`);
+            })();
+            << 'Hello World'
+        </pre>
+    </li>
+
+
+    <li>
+      Self-contained Code Blocks:
+      <pre>
+          (function() {
+            // block A
+            const name = 'Block A';
+            console.log(`Hello from ${name}`);
+            }());
+        
+            (function() {
+            // block B
+            const name = 'Block B';
+            console.log(`Hello from ${name}`);
+        }());
+        
+        <<  Hello from Block A
+            Hello from Block B
+        
+        </pre>
+    </li>
+    <h3>Ajax Notes</h3>
+    <li>
+      Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically updates
+      web pages without reloading. This enables data to be sent and received in the background, as well as portions of a
+      page to be updated in response to user events, while the rest of the program continues to run.
+    </li>
+    <li>
+      <p>The Fetch API</p>
+      <pre>
+          fetch('https://example.com/data')
+          .then( // code that handles the response )
+          .catch( // code that runs if the server returns an error )
+        </pre>
+    </li>
+
+  </ul>
+</body>
+
+</html>
