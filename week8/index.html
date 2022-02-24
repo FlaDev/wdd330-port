@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WDD 330 portfolio</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <h1>WDD 330 portfolio</h1>
+  <h2>Week8</h2>
+  <ul>
+    <H4>TRANSFORMS</H4>
+    <li>
+      The CSS3 transform property lets you lets you translate, rotate, scale, and/or skew
+      any element on the page.
+    </li>
+    <h4>TRANSLATION</h4>
+    <li>
+      Translation functions allow you to move elements left, right, up, or down.
+      <br>The translate(x,y) function moves an element x from the left, and y from the top:
+      <pre>transform: translate(45px, -45px);</pre>
+    </li>
+    <li>
+      If you only want to move an element vertically or horizontally, you can use the
+      translatex or translatey functions respectively. <br>To move 45px to the right along
+      the x axis, include:
+      <pre>transform: translateX(45px);</pre>
+    </li>
+
+    <h4>Scaling</h4>
+    <li>
+      The scale(x,y) function scales an element by the defined factors horizontally then
+      vertically
+      <pre>transform: scale(1.5, 0.25);</pre>
+    </li>
+    <li>scaleX(x) or scaleY(y) functions will scale horizontal or vertical dimensions only</li>
+
+    <h4>Rotation</h4>
+    <li>The rotate() function rotates an element around the point of origin by a specified
+      angle value. As with scale, by default the point of origin is the element’s center.</li>
+    <li>angles are declared in degrees, with positive degrees moving clockwise
+      and negative moving counterclockwise. In addition to degrees, values can be
+      provided in grads, radians, or turns, but we’ll just be sticking with degrees</li>
+    <pre>
+        .ad-ad2 h1:hover span {
+          color: #484848;
+          transform: rotate(10deg) translateX(40px) scale(1.5);
+        }
+      </pre>
+    <h4>Skew</h4>
+    <li>The skew(x,y) function specifies a skew along the x and y axes.</li>
+    <pre>transform: skew(15deg, 4deg);</pre>
+    <li>As with translate and scale, there are axis-specific versions of the skew transform: <br>
+      skewX() and skewY().</li>
+
+  </ul>
+</body>
+
+</html>
