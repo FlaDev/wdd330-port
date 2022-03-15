@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WDD 330 portfolio</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <h1>WDD 330 portfolio</h1>
+  <h2>Week9</h2>
+
+  <li>
+    <a href="quiz/index.html"> Window Object Quiz Example</a>
+  </li>
+
+  <ul>
+    <H4>Window Object</H4>
+
+    <li>
+      <pre><code>
+        if (window.x) {
+          // do something
+        }
+      </code></pre>
+    </li>
+    <li>
+      <pre><code>
+        window.parseInt(4.2);
+        << 4
+        window.isNaN(4.2);
+        << false
+      </code></pre>
+    </li>
+
+    <li>
+      Browser History
+      <pre><code>
+        window.history.go(1); // goes forward 1 page
+        window.history.go(0); // reloads the current page
+        window.history.go(-1); // goes back 1 page
+      </code></pre>
+    </li>
+
+    <h4>document</h4>
+    <li>
+      <pre><code>
+        document.write('<h1>Hello, world!</h1>');
+      </code></pre>
+    </li>
+
+    <li>document cookie
+      <pre><code>
+        const cookies = document.cookie.split("; ");
+        for (crumb of cookies){
+          const [key,value] = crumb.split("=");
+          console.log(`The value of ${key} is ${value}`);
+        }
+        << The value of name is Batman
+        The value of hero is true
+        The value of city is Gotham
+      </code></pre>
+    </li>
+
+   
+
+  </ul>
+</body>
+
+</html>

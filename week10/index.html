@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WDD 330 portfolio</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <h1>WDD 330 portfolio</h1>
+  <h2>Week10</h2>
+  <ul>
+    <H4>Client-side form validation</H4>
+    <li>
+      No Validation:
+      <pre><code>
+        <form>
+          <label for="choose">Would you prefer a banana or cherry?</label>
+          <input id="choose" name="i_like">
+          <button>Submit</button>
+        </form>
+        input:invalid {
+          border: 2px dashed red;
+        }
+        
+        input:valid {
+          border: 2px solid black;
+        }
+      </code></pre>
+    </li>
+    <h4>Required</h4>
+    <li>
+      <pre><code>
+        <form>
+          <label for="choose">Would you prefer a banana or cherry? (required)</label>
+          <input id="choose" name="i_like" required>
+          <button>Submit</button>
+        </form>
+        input:invalid {
+          border: 2px dashed red;
+        }
+        
+        input:invalid:required {
+          background-image: linear-gradient(to right, pink, lightgreen);
+        }
+        
+        input:valid {
+          border: 2px solid black;
+        }
+      </code></pre>
+    </li>
+    <li>
+      Regular Expression:
+      <pre><code>
+        <form>
+          <label for="choose">Would you prefer a banana or a cherry?</label>
+          <input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry">
+          <button>Submit</button>
+        </form>
+      </code></pre>
+    </li>
+
+    <li>API Validation
+      <pre><code>
+        const email = document.getElementById("mail");
+        email.addEventListener("input", function (event) {
+          if (email.validity.typeMismatch) {
+            email.setCustomValidity("I am expecting an e-mail address!");
+            email.reportValidity();
+          } else {
+            email.setCustomValidity("");
+          }
+        });
+      </code></pre>
+    </li>
+
+   <h4>FETCH</h4>
+   <li>
+     Using FETCH
+     <code><pre>
+      fetch('http://example.com/movies.json')
+      .then(response => response.json())
+      .then(data => console.log(data));
+     </pre></code>
+   </li>
+
+   <li>
+     FUll Fetch Options:
+
+     <pre><code>
+      // Example POST method implementation:
+      async function postData(url = '', data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          redirect: 'follow', // manual, *follow, error
+          referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+          body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+      }
+      
+      postData('https://example.com/answer', { answer: 42 })
+        .then(data => {
+          console.log(data); // JSON data parsed by `data.json()` call
+        });
+     </code></pre>
+   </li>
+
+   <li>Fetch with JSON
+
+    <pre><code>
+      const data = { username: 'example' };
+
+      fetch('https://example.com/profile', {
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    </code></pre>
+   </li>
+   
+
+  </ul>
+</body>
+
+</html>
